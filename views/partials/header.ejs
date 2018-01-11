@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WELCOME!</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <!--  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
+  <meta name="viewport"  content="width = device-width, initial-scale = 1">
+  </head>
+  <container class='newbod'>
+    <nav class="navbar navbar-default">
+      <div class="container navCon">
+        <i class="fa fa-bar-chart" style="font-size:24px"></i>
+        <ul class="nav navbar-nav navUl">
+          <li class='doggyDNANav'>Doggy DNA</li>
+          <% if (currentUser) {%>
+          <li><a class="navA" href="/logout">Logout  <% currentUser.local.email%></a></li>
+          <% } else { %>
+          <li><a class="navA" href="/login">Login</a></li>
+          <li><a class="navA" href="/signup">Signup</a></li> 
+          <% } %>
+        </ul>
+
+      </div> <!-- /.container-fluid -->
+    </nav>
+  </contaner>
+  
+    <main class="main-container">
+

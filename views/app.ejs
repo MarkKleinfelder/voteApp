@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOGGO DNA</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
+  <meta name="viewport"  content="width = device-width, initial-scale = 1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+  
+  <!--JQUERY-->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script> 
+
+</head>
+<body>
+  <header>
+    <% include ./partials/header.ejs %>
+  </header>
+  <div class = "container-fluid">
+    <div class = 'container'>
+      <div class = 'row row1'>
+        <div class = 'col-sm-12'>
+          <h1 class = 'title'>Make your Selections!</h1>
+        </div>
+      </div>
+      <div class='row row1'>
+        <div class = 'col-sm-12'>
+          <input class = 'userName' id='userNameInput' type='text' placeholder='YOUR NAME HERE!'></input>
+        </div>
+      </div> 
+      <div class = 'container'>
+        <div class = 'row row2'>
+          <div class = 'col-sm-2 col-sm-offset-2 dogCol jack'>
+            <h4 class='dogName'>Jack</h4>
+            <div class='imageDiv'>
+              <img class='dogPics' src='images/jack.jpg'>
+            </div>
+            <div class="form-group" id='jackSec'>
+              <label class='jackClass'>Pick-A-Breed</label>
+              <select class="form-control jackSel" id='jack1'></select>
+              <select class="form-control jackSel" id='jack2'></select>
+              <select class="form-control jackSel" id='jack3'></select>
+              <select class="form-control jackSel" id='jack4'></select>
+            </div>
+          </div>
+          <div class = 'col-sm-2 dogCol odette'>
+            <h4 class='dogName'>Odette</h4>
+            <div class='imageDiv'>
+              <img class='dogPics'  src='images/odette.jpg'>
+            </div>
+            <div class='form-group' id='odetteSec'>
+              <label class='odetteClass'>Pick-A-Breed</label>
+              <select id='odette1' class='form-control'></select>
+              <select id='odette2' class='form-control'></select>
+              <select id='odette3' class='form-control'></select>
+              <select id='odette4' class='form-control'></select>
+            </div>  
+          </div>
+          <div class = 'col-sm-2 dogCol charlotte'>
+            <h4 class='dogName'>Charlotte</h4>
+            <div class='imageDiv'>
+              <img class='dogPics' src='images/charlotte.jpg'>
+            </div>
+            <div class='form-group' id='charlotteSec'>
+              <label >Pick-A-Breed</label>
+              <select id='charlotte1' class='form-control'></select>
+              <select id='charlotte2' class='form-control'></select>
+              <select id='charlotte3' class='form-control'></select>
+              <select id='charlotte4' class='form-control'></select>
+            </div> 
+          </div>
+          <div class = 'col-sm-2 dogCol tock'>
+            <h4 class='dogName'>Tock</h4>
+            <div class='imageDiv'>
+              <img class='dogPics' src='images/tock2.jpg'>
+            </div>
+            <div class='form-group' id='tockSec'>
+              <label>Pick-A-Breed</label>
+              <select id='tock1' class='form-control'></select>
+              <select id='tock2' class='form-control'></select>
+              <select id='tock3' class='form-control'></select>
+              <select id='tock4' class='form-control'></select>
+            </div> 
+          </div>                       
+        </div>
+        <div class='row'>
+          <div class='col-sm-12 text-center'>
+            <button class='btn btn-primary saveButton' id='saveBreeds'>SAVE</button>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+   
+    
+<!--____________RESULTS HISTORY RENDER AREA______________-->
+<!--     <div class='list-group' id='history'>
+    </div> -->
+    
+<!-- _______________MODAL_________________________________ -->
+
+<!--     <div class="modal fade" tableindex='-1' role='dialog' id='commentModal'>
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal' area-label="Close"><span aria-hidden='true'>&times;</span></button>
+            <h3 class='modalTitle modal-title'>Comments</h3>
+          </div>
+          <div class='modal-body'>
+            <fieldset class="from-horizontal">
+              <div class="form-group"> -->
+               <!--  <label class='modalComment col-md-4'>Comment</label> -->
+                <!-- <div class='col-md-10 col-md-offset-1'> -->
+                <!---_______text input___________-->
+               <!--  <input id='resultComment' name='resultComment' type='text' placeholder='add a comment' class='form-control input-lg'>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        <div class='model-footer'>
+          <button type='button' class='btn btn-primary btnSave' id='saveComment'>Save Comment</button>
+
+          <button type='button' class='btn btn-default btnClose' data-dismiss='modal'>Close</button>
+        </div>
+      </div> -->
+  </div>
+  <div class = "container-fluid dbResults">
+    <div class = 'container'>
+      <div class = 'row row1'>
+        <div class = 'col-sm-5 col-sm-offset-2 resultsTitle'>
+          <h3>Word on the street...</h3>
+        </div>
+      </div> 
+      <div class = 'container' id='allUsersContainer'>        
+      </div>
+    </div>
+  </div>   
+     
+  <!--app.js-->
+  <script type= "text/javascript" src = "./scripts/app.js"></script>
+
+  <!--Canvas-->
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!--Bootstrap-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
