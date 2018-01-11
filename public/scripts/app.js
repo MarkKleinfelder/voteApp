@@ -93,9 +93,11 @@ function tockChange(){
 
 var currentUserId;
 var currentUserEmail;
-
+var currentUserName;
+var userName;
 
 //******************DROP DOWN****************//
+var userInput = $('#userNameInput');
 var breedSelectId = document.getElementsByTagName('select');
 var jackList = document.getElementById('jackList');
 var odetteList = document.getElementById('odetteList');
@@ -107,10 +109,11 @@ $(document).ready(function() {
   $.getJSON("/api/user_data", function(data) {//GETS THE CURRENT USER ID!
     currentUserId = data.username._id;
     currentUserEmail = data.username.local.email;
-
-    console.log('current user name: '+currentUserEmail)
+    console.log('current user email: '+currentUserEmail)
     console.log('current user id: '+currentUserId)
+    //userInput.val(userInput.val()+currentUserEmail);
   });
+  
   $.get("/api/breeds")
     .done(function(breedlist){ 
     var allUsers=[];
@@ -119,8 +122,8 @@ $(document).ready(function() {
     })
     console.log('all users data', {allUsers});
     allUsers.forEach(function(user){
-      if(user.createdBy == currentUserId){
-         $('#userNameInput').val(user.data.userNameInput);
+      if(user.createdBy == currentUserId){        
+         $('#userNameInput').val(user.data.userNameInput);        
          $('#jack1').val(user.data.jackFirst.split(' ').join('_'));
          $('#jack2').val(user.data.jackSecond.split(' ').join('_'));
          $('#jack3').val(user.data.jackThird.split(' ').join('_'));
@@ -223,8 +226,13 @@ $(document).ready(function() {
   }
 
 $('#saveBreeds').on('click', function(){
-  var userName = $('#userNameInput').val();
-  console.log($('#userNameInput').val())
+  var usersName;
+  if(userInput.val()){
+    usersName=userInput.val();
+  }else{
+    usersName=currentUserEmail;  
+  }
+  
   var newJack=[];
   var newOdette=[];
   var newCharlotte=[];
@@ -246,7 +254,7 @@ $('#saveBreeds').on('click', function(){
     tock.forEach(function(tickTock){
     newTock.push(tickTock) 
   })
-  console.log(newJack, newOdette, newCharlotte, newTock);
+  //console.log(newJack, newOdette, newCharlotte, newTock);
   
   var userUrl = "/api/breeds";
   $.ajax({              //ajax POST to db
@@ -255,7 +263,7 @@ $('#saveBreeds').on('click', function(){
     data:{
       title:"Breed Choices",
       data:{
-          userNameInput: userName,
+          userNameInput: usersName,
 
           userEmail: currentUserEmail,
 
@@ -292,6 +300,7 @@ $('#saveBreeds').on('click', function(){
      //    allUsersResults()
      //  },
     })
+
   allUsersResults()
 });
 
