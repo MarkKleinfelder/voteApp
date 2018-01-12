@@ -17,6 +17,11 @@ body{
 /*.allUsersContainer{
 	visibility: hidden;
 }*/
+
+
+.respUserName{
+	margin-bottom: 0px;
+}
 .dnaCol{
 	height:100%;
 	width:100%;
@@ -47,6 +52,7 @@ body{
 }
 
 .resultsTitle{
+	margin-top: 15px;
 	text-align:left;
 }
 .btn-primary{
@@ -65,7 +71,10 @@ body{
 .userNameGen{
 	font-weight: bolder;
 	font-size: 25px;
-	text-align: right;
+	text-align: left;
+	margin-bottom:0px;
+	margin-top:3px;
+	padding-left:0px;
 }
 
 .dogPics{

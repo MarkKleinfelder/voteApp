@@ -170,7 +170,7 @@ $(document).ready(function() {
 
 
   function allUsersResults(){
-      $('#userNameInput').html('');
+      //$('#userNameInput').html(''); // REMOVED TO FIX WRONG AUTO POP?
       $('#allUsersContainer').html('');
 
     $.get("/api/breeds")
@@ -182,17 +182,19 @@ $(document).ready(function() {
   
 
     thisUser.forEach(function(user){
-      if(user.data.userNameInput !== currentUserId){
-        $('#userNameInput').val(user.data.userNameInput)
-      }
+      //if(user.data.userNameInput !== currentUserId){ //DONT KNOW WHY I DID THIS!
+      $('#userNameInput').val(user.data.userNameInput)
+      //}
+      $('#wordStreet').text('Word on the street...');
       $('#allUsersContainer').append(
         "<div class='row'>"+
-          "<div class='col-sm-2 userNameGen' id='allUsersCol>"+
-            "<p class = 'userName'>"+user.data.userNameInput+"</p>"+
+          "<div class='col-sm-8 col-sm-offset-2 userNameGen' id='allUsersCol'>"+
+            "<p class='respUserName'>"+user.data.userNameInput+"</p>"+
             //"<h5 id='userEmail'>"+user.data.userEmail+"</h4>"+
           "</div>"+
-
-          "<ul class = 'col-sm-2 dogCol jack' id='jackList'>"+  
+        "</div>"+  
+        "<div class='row'>"+
+          "<ul class = 'col-sm-2 col-sm-offset-2 dogCol jack' id='jackList'>"+  
             "<li>"+user.data.jackFirst.split('_').join(' ')+"</li>"+
             "<li>"+user.data.jackSecond.split('_').join(' ')+"</li>"+
             "<li>"+user.data.jackThird.split('_').join(' ')+"</li>"+
@@ -221,7 +223,7 @@ $(document).ready(function() {
           "</ul>"+
         "</div>"
         )
-    })
+      })
     })
   }
 
