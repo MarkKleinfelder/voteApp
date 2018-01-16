@@ -103,7 +103,8 @@ var jackList = document.getElementById('jackList');
 var odetteList = document.getElementById('odetteList');
 var charlotteList = document.getElementById('charlotteList');
 var tockList = document.getElementById('tockList');
-var breeds = ['\-\-','Austrailian_Shepherd', 'Border_Collie', 'Cattle_Dog', 'Corgie', 'Dutch_Shepherd', 'German_Shepherd', 'Husky', 'Jack_Russel', 'Labrador']
+var breeds = ['\-\-', 'Australian_Cattle_Dog', 'Australian_Kelpie', 'Australian_Shepherd', 'Border_Collie', 'Boxer', 'Cairn_Terrier', 'Chihuahua', 'Corgie', 'Dutch_Shepherd', 'German_Shepherd', 'German_Shorthaired_Pointer', 'Husky', 'Jack_Russell', 'Labrador_Retriever', 'Malinois', 'Miniature_American_Shepherd', 'Miniature_Pinscher', 'Plot_Hound', 'Welsh_Corgi', 'Wheaten_Terrier']
+
 
 $(document).ready(function() { 
   $.getJSON("/api/user_data", function(data) {//GETS THE CURRENT USER ID!
@@ -121,35 +122,38 @@ $(document).ready(function() {
       allUsers.push(listItem);
     })
     console.log('all users data', {allUsers});
-    allUsers.forEach(function(user){
-      if(user.createdBy == currentUserId){        
-         $('#userNameInput').val(user.data.userNameInput);        
-         $('#jack1').val(user.data.jackFirst.split(' ').join('_'));
-         $('#jack2').val(user.data.jackSecond.split(' ').join('_'));
-         $('#jack3').val(user.data.jackThird.split(' ').join('_'));
-         $('#jack4').val(user.data.jackFourth.split(' ').join('_'));
+    
+    window.setTimeout(function(user){
+      allUsers.forEach(function(user){
+        if(user.createdBy == currentUserId){        
+          $('#userNameInput').val(user.data.userNameInput);        
+          $('#jack1').val(user.data.jackFirst.split(' ').join('_'));
+          $('#jack2').val(user.data.jackSecond.split(' ').join('_'));
+          $('#jack3').val(user.data.jackThird.split(' ').join('_'));
+          $('#jack4').val(user.data.jackFourth.split(' ').join('_'));
 
-         $('#odette1').val(user.data.odetteFirst.split(' ').join('_'));
-         $('#odette2').val(user.data.odetteSecond.split(' ').join('_'));
-         $('#odette3').val(user.data.odetteThird.split(' ').join('_'));
-         $('#odette4').val(user.data.odetteFourth.split(' ').join('_'));
+          $('#odette1').val(user.data.odetteFirst.split(' ').join('_'));
+          $('#odette2').val(user.data.odetteSecond.split(' ').join('_'));
+          $('#odette3').val(user.data.odetteThird.split(' ').join('_'));
+          $('#odette4').val(user.data.odetteFourth.split(' ').join('_'));
 
-         $('#charlotte1').val(user.data.charlotteFirst.split(' ').join('_'));
-         $('#charlotte2').val(user.data.charlotteSecond.split(' ').join('_'));
-         $('#charlotte3').val(user.data.charlotteThird.split(' ').join('_'));
-         $('#charlotte4').val(user.data.charlotteFourth.split(' ').join('_'));
+          $('#charlotte1').val(user.data.charlotteFirst.split(' ').join('_'));
+          $('#charlotte2').val(user.data.charlotteSecond.split(' ').join('_'));
+          $('#charlotte3').val(user.data.charlotteThird.split(' ').join('_'));
+          $('#charlotte4').val(user.data.charlotteFourth.split(' ').join('_'));
 
-         $('#tock1').val(user.data.tockFirst.split(' ').join('_'));
-         $('#tock2').val(user.data.tockSecond.split(' ').join('_'));
-         $('#tock3').val(user.data.tockThird.split(' ').join('_'));
-         $('#tock4').val(user.data.tockFourth.split(' ').join('_'));
+          $('#tock1').val(user.data.tockFirst.split(' ').join('_'));
+          $('#tock2').val(user.data.tockSecond.split(' ').join('_'));
+          $('#tock3').val(user.data.tockThird.split(' ').join('_'));
+          $('#tock4').val(user.data.tockFourth.split(' ').join('_'));
          
-      }
-      jackChange();
-      odetteChange();
-      charlotteChange();
-      tockChange();
-    })
+        }
+        jackChange();
+        odetteChange();
+        charlotteChange();
+        tockChange();
+      })
+    },500)
     //allUsersResults(thisUser);
   });
   breeds.forEach(function(breed,index){
@@ -162,16 +166,17 @@ $(document).ready(function() {
 });
 
   function optionGen(breedSelectId, breedObj){
-    $(breedSelectId).append("<option value="+breedObj.optValue+">"+breedObj.optText.split('_').join(' ')+"</option>")
+    $(breedSelectId).append("<option class='breedOps' value="+breedObj.optValue+">"+breedObj.optText.split('_').join(' ')+"</option>")
     $.each($('option'), function(){
       $(this).addClass($(this).closest('div').attr('id'))
     })
+    $('.dogContainer').removeClass('hidey');
   }
 
 
   function allUsersResults(){
       //$('#userNameInput').html(''); // REMOVED TO FIX WRONG AUTO POP?
-      $('#allUsersContainer').html('');
+    $('#allUsersContainer').html('');
 
     $.get("/api/breeds")
     .done(function(breedlist){ 
@@ -179,8 +184,6 @@ $(document).ready(function() {
     breedlist.forEach(function(listItem){ //get user id from each entry
       thisUser.push(listItem);
     })
-  
-
     thisUser.forEach(function(user){
       //if(user.data.userNameInput !== currentUserId){ //DONT KNOW WHY I DID THIS!
       $('#userNameInput').val(user.data.userNameInput)
@@ -188,34 +191,34 @@ $(document).ready(function() {
       $('#wordStreet').text('Word on the street...');
       $('#allUsersContainer').append(
         "<div class='row'>"+
-          "<div class='col-sm-8 col-sm-offset-2 userNameGen' id='allUsersCol'>"+
+          "<div class='col-sm-8 userNameGen' id='allUsersCol'>"+
             "<p class='respUserName'>"+user.data.userNameInput+"</p>"+
             //"<h5 id='userEmail'>"+user.data.userEmail+"</h4>"+
           "</div>"+
         "</div>"+  
         "<div class='row'>"+
-          "<ul class = 'col-sm-2 col-sm-offset-2 dogCol jack' id='jackList'>"+  
+          "<ul class = 'col-sm-3  dogCol jack' id='jackList'>"+  
             "<li>"+user.data.jackFirst.split('_').join(' ')+"</li>"+
             "<li>"+user.data.jackSecond.split('_').join(' ')+"</li>"+
             "<li>"+user.data.jackThird.split('_').join(' ')+"</li>"+
             "<li>"+user.data.jackFourth.split('_').join(' ')+"</li>"+    
           "</ul>"+
 
-          "<ul class = 'col-sm-2 dogCol odette' id='odetteList'>"+ 
+          "<ul class = 'col-sm-3 dogCol odette' id='odetteList'>"+ 
             "<li>"+user.data.odetteFirst.split('_').join(' ')+"</li>"+
             "<li>"+user.data.odetteSecond.split('_').join(' ')+"</li>"+
             "<li>"+user.data.odetteThird.split('_').join(' ')+"</li>"+
             "<li>"+user.data.odetteFourth.split('_').join(' ')+"</li>"+            
           "</ul>"+
 
-          "<ul class = 'col-sm-2 dogCol charlotte' id='charlotteList'>"+ 
+          "<ul class = 'col-sm-3 dogCol charlotte' id='charlotteList'>"+ 
             "<li>"+user.data.charlotteFirst.split('_').join(' ')+"</li>"+
             "<li>"+user.data.charlotteSecond.split('_').join(' ')+"</li>"+
             "<li>"+user.data.charlotteThird.split('_').join(' ')+"</li>"+
             "<li>"+user.data.charlotteFourth.split('_').join(' ')+"</li>"+         
           "</ul>"+
 
-          "<ul class = 'col-sm-2 dogCol tock' id='tockList'>"+
+          "<ul class = 'col-sm-3 dogCol tock' id='tockList'>"+
             "<li>"+user.data.tockFirst.split('_').join(' ')+"</li>"+
             "<li>"+user.data.tockSecond.split('_').join(' ')+"</li>"+
             "<li>"+user.data.tockThird.split('_').join(' ')+"</li>"+
@@ -225,9 +228,13 @@ $(document).ready(function() {
         )
       })
     })
-  }
+    $('.allUserContHidden').addClass('load');
+    $('#saveBreeds').removeClass('hidey');
+  };
 
 $('#saveBreeds').on('click', function(){
+  $('.allUserContHidden').removeClass('load');
+  $('#saveBreeds').addClass('hidey');
   var usersName;
   if(userInput.val()){
     usersName=userInput.val();
@@ -302,10 +309,17 @@ $('#saveBreeds').on('click', function(){
      //    allUsersResults()
      //  },
     })
-
-  allUsersResults()
+  delay();
 });
+  
 
+function delay(){
+  $('.loadGif').addClass('load')
+  window.setTimeout(function(){
+    $('.loadGif').removeClass('load');
+    allUsersResults()
+  },2000)
+}
 
 
 // ************ GLOBAL VARIABLES *********** //

@@ -32,70 +32,77 @@
         <div class = 'col-sm-12'>
           <input class = 'userName' id='userNameInput' type='text' placeholder='YOUR NAME HERE!'></input>
         </div>
-      </div> 
-      <div class = 'container'>
-        <div class = 'row row2'>
-          <div class = 'col-sm-2 col-sm-offset-2 dogCol jack'>
-            <h4 class='dogName'>Jack</h4>
-            <div class='imageDiv'>
-              <img class='dogPics' src='images/jack.jpg'>
-            </div>
-            <div class="form-group" id='jackSec'>
-              <label class='jackClass'>Pick-A-Breed</label>
-              <select class="form-control jackSel" id='jack1'></select>
-              <select class="form-control jackSel" id='jack2'></select>
-              <select class="form-control jackSel" id='jack3'></select>
-              <select class="form-control jackSel" id='jack4'></select>
-            </div>
+      </div>
+    </div>
+  </div>
+    <div class = 'container dogContainer hidey'>
+      <div class = 'row row2'>
+        <div class = 'col-sm-3 dogCol jack'>
+          <h4 class='dogName'>Jack</h4>
+          <div class='imageDiv'>
+            <img class='dogPics' src='images/jack.jpg'>
           </div>
-          <div class = 'col-sm-2 dogCol odette'>
-            <h4 class='dogName'>Odette</h4>
-            <div class='imageDiv'>
-              <img class='dogPics'  src='images/odette.jpg'>
-            </div>
-            <div class='form-group' id='odetteSec'>
-              <label class='odetteClass'>Pick-A-Breed</label>
-              <select id='odette1' class='form-control'></select>
-              <select id='odette2' class='form-control'></select>
-              <select id='odette3' class='form-control'></select>
-              <select id='odette4' class='form-control'></select>
-            </div>  
+          <div class="form-group" id='jackSec'>
+            <label class='jackClass'>Pick-A-Breed</label>
+            <select class="form-control jackSel" id='jack1'></select>
+            <select class="form-control jackSel" id='jack2'></select>
+            <select class="form-control jackSel" id='jack3'></select>
+            <select class="form-control jackSel" id='jack4'></select>
           </div>
-          <div class = 'col-sm-2 dogCol charlotte'>
-            <h4 class='dogName'>Charlotte</h4>
-            <div class='imageDiv'>
-              <img class='dogPics' src='images/charlotte.jpg'>
-            </div>
-            <div class='form-group' id='charlotteSec'>
-              <label >Pick-A-Breed</label>
-              <select id='charlotte1' class='form-control'></select>
-              <select id='charlotte2' class='form-control'></select>
-              <select id='charlotte3' class='form-control'></select>
-              <select id='charlotte4' class='form-control'></select>
-            </div> 
-          </div>
-          <div class = 'col-sm-2 dogCol tock'>
-            <h4 class='dogName'>Tock</h4>
-            <div class='imageDiv'>
-              <img class='dogPics' src='images/tock2.jpg'>
-            </div>
-            <div class='form-group' id='tockSec'>
-              <label>Pick-A-Breed</label>
-              <select id='tock1' class='form-control'></select>
-              <select id='tock2' class='form-control'></select>
-              <select id='tock3' class='form-control'></select>
-              <select id='tock4' class='form-control'></select>
-            </div> 
-          </div>                       
         </div>
+        <div class = 'col-sm-3 dogCol odette'>
+          <h4 class='dogName'>Odette</h4>
+          <div class='imageDiv'>
+            <img class='dogPics'  src='images/odette.jpg'>
+          </div>
+          <div class='form-group' id='odetteSec'>
+            <label class='odetteClass'>Pick-A-Breed</label>
+            <select id='odette1' class='form-control'></select>
+            <select id='odette2' class='form-control'></select>
+            <select id='odette3' class='form-control'></select>
+            <select id='odette4' class='form-control'></select>
+          </div>  
+        </div>
+        <div class = 'col-sm-3 dogCol charlotte'>
+          <h4 class='dogName'>Charlotte</h4>
+          <div class='imageDiv'>
+            <img class='dogPics' src='images/charlotte.jpg'>
+          </div>
+          <div class='form-group' id='charlotteSec'>
+            <label >Pick-A-Breed</label>
+            <select id='charlotte1' class='form-control'></select>
+            <select id='charlotte2' class='form-control'></select>
+            <select id='charlotte3' class='form-control'></select>
+            <select id='charlotte4' class='form-control'></select>
+          </div> 
+        </div>
+        <div class = 'col-sm-3 dogCol tock'>
+          <h4 class='dogName'>Tock</h4>
+          <div class='imageDiv'>
+            <img class='dogPics' src='images/tock2.jpg'>
+          </div>
+          <div class='form-group' id='tockSec'>
+            <label>Pick-A-Breed</label>
+            <select id='tock1' class='form-control'></select>
+            <select id='tock2' class='form-control'></select>
+            <select id='tock3' class='form-control'></select>
+            <select id='tock4' class='form-control'></select>
+          </div> 
+        </div>                       
+      </div>
         <div class='row'>
           <div class='col-sm-12 text-center'>
             <button class='btn btn-primary saveButton' id='saveBreeds'>SAVE</button>
+             <img class='loadGif' src="images/dna.gif">
           </div> 
         </div>
       </div>
     </div>
-
+<!--     <div class='row'>
+      <div class='col-sm-12 loadGifCol'>
+        <img class='loadGif' src="images/dna.gif">
+      </div>
+    </div> -->
    
     
 <!--____________RESULTS HISTORY RENDER AREA______________-->
@@ -128,15 +135,15 @@
           <button type='button' class='btn btn-default btnClose' data-dismiss='modal'>Close</button>
         </div>
       </div> -->
-  </div>
+
   <div class = "container-fluid dbResults">
     <div class = 'container'>
       <div class = 'row row1'>
-        <div class = 'col-sm-5 col-sm-offset-2 resultsTitle'>
+        <div class = 'col-sm-5 resultsTitle'>
           <h3 id='wordStreet'></h3>
         </div>
       </div> 
-      <div class = 'container' id='allUsersContainer'>        
+      <div id='allUsersContainer' class='allUserContHidden'>        
       </div>
     </div>
   </div>   
