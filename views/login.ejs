@@ -8,7 +8,6 @@
     <div class="alert alert-danger"><%= message %></div>
   <% } %>
 
-<container class="loginScreen">
 <div class = "row rowHead">
   <div class="col-sm-12" >
     <h2>Login</h2>
@@ -18,7 +17,7 @@
   <div class="form-group">
     <label for="email">Email</label>
     <div class="row rowText">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-4 col-sm-offset-4">
         <input class="form-control textInput" type="text" name="email" id="email">
       </div>
     </div>
@@ -26,7 +25,7 @@
   <div class="form-group">
     <label for="email">Password</label>
     <div class="row rowText">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-4 col-sm-offset-4">
       <input class="form-control textInput" type="password" name="password" id="password">
       </div>
     </div>  
@@ -37,10 +36,9 @@
     </div>
   </div>
 </form>
-</container>
 <% include ./partials/dna.ejs %>
-
 <% include ./partials/footer.ejs %>
 
-</html>
+
 </body>
+</html>
